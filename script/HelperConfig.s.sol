@@ -30,6 +30,7 @@ contract HelperConfig is Script, CodeConstants {
     NetworkConfig public localNetworkConfig;
 
     mapping(uint256 chainId => NetworkConfig) public networkConfigs;
+    NetworkConfig public activeNetworkConfig;
 
     constructor() {
         networkConfigs[ETH_SEPOLIA_CHAIN_ID] = getSepoliaEthConfig();
@@ -43,6 +44,10 @@ contract HelperConfig is Script, CodeConstants {
         } else {
             revert HelperConfig__InvalidChainId();
         }
+    }
+
+    function getConfig() public returns (NetworkConfig memory) {
+        return getConfigByChainId(block.chainid);
     }
 
     function getSepoliaEthConfig() public pure returns (NetworkConfig memory) {
