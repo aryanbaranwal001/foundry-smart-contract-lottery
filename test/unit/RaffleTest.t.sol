@@ -9,6 +9,10 @@ import {HelperConfig} from "script/HelperConfig.s.sol";
 contract RaffleTest is Test {
     Raffle public raffle;
     HelperConfig public helperConfig;
+
+    event EnteredRaffle(address indexed player);
+    event WinnerPicked(address indexed winner);
+
     uint256 public constant STARTING_PLAYER_BALANCE = 10 ether;
     uint256 entranceFee;
     uint256 interval;
@@ -53,5 +57,15 @@ contract RaffleTest is Test {
         // Assert
         address playerRecorded = raffle.getPlayer(0);
         assert(playerRecorded == PLAYER);
+    }
+
+    function testEmitsEventOnEntrance() public {
+        // Arrange
+        vm.prank(PLAYER);
+
+        // Act / Assert
+        vm.expectEmit(true, false, false, false, address(raffle));
+        emit EnteredRaffle(PLAYER);
+        raffle.enterRaffle{value: entranceFee}();
     }
 }
