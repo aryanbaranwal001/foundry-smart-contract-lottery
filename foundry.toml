@@ -5,7 +5,9 @@ libs = ["lib"]
 solc_version = "0.8.19"
 
 remappings=['@chainlink/contracts=lib/chainlink-brownie-contracts/contracts/',
-  '@soulmate=lib/solmate/src/'
+  '@soulmate=lib/solmate/src/',
+  
+
 ]
 
 fs_permissions = [

@@ -10,3 +10,6 @@
 [submodule "lib/tic-tac-toe-game"]
 	path = lib/tic-tac-toe-game
 	url = https://github.com/aryanbaranwal001/tic-tac-toe-game
+[submodule "lib/foundry-devops"]
+	path = lib/foundry-devops
+	url = https://github.com/Cyfrin/foundry-devops
