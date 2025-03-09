@@ -170,6 +170,12 @@ contract RaffleTest is Test {
         VRFCoordinatorV2_5Mock(vrfCoordinator).fulfillRandomWords(randomRequestId, address(raffle));
     }
 
+
+    /*//////////////////////////////////////////////////////////////
+                               LECTURE 39
+    //////////////////////////////////////////////////////////////*/
+
+
     // function testFulfillRandomWordsPicksAWinnerResetsAndSendsMoney() public raffleEnteredAndTimePassed {
     //     // Arrange
 
